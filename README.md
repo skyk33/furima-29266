@@ -13,6 +13,7 @@
 | first_name | string | null: false |
 | family_name_kana | string | null: false |
 | first_name_kana | string | null: false |
+| family_name | string | null: false |
 | birthday | date | null: false |
 
 ### Association
@@ -25,13 +26,13 @@
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | name | string | null: false |
-| user_id | string | null: false, foreign_key: true |
+| user_id | string | null: false |
 | description | text | null: false |
-| category_id | integer | null: false |
-| condition_id | integer | null: false |
-| delivery_charge_type_id | integer | null: false |
-| delivery_from_id | integer | null: false |
-| delivery_days_id | integer | null: false |
+| category | string | null: false |
+| condition | string | null: false |
+| delivery_charge_type | string | null: false |
+| delivered_from | string | null: false |
+| delivery_days | string | null: false |
 | price | string | null: false |
 | availability | boolean | null: false |
 
@@ -40,14 +41,6 @@
 - belongs_to :user
 - has_one :purchase_order
 - has_one_attached :image
-- belongs_to_active_hash :category, :condition, :delivery_charge_type, :delivery_from, :delivery_days
-
-### ActiveHash利用するもの
-- category
-- condition
-- delivery_charge_type
-- delivery_from
-- delivery_days
 
 
 ## purchase_orders テーブル
@@ -56,13 +49,28 @@
 | ------ | ---- | ------- |
 | user_id | references | null: false, foreign_key: true |
 | item_id | references | null: false, foreign_key: true |
+| payment_details_id | references | null: false, foreign_key: true |
 | delivery_address_id | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :items
+- has_one :payment_detail
 - has_one :delivery_address
+
+## payment_details テーブル
+
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| card_number | integer | null:false |
+| expiry_month | integer | null: false |
+| card_holders_name | string | null: false |
+| security_code | integer | null: false |
+
+### Association
+
+- belongs_to :purchase_order
 
 ## delivery_address テーブル
 
