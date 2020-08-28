@@ -27,11 +27,11 @@
 | name | string | null: false |
 | user_id | string | null: false, foreign_key: true |
 | description | text | null: false |
-| category | string | null: false |
-| condition | string | null: false |
-| delivery_charge_type | string | null: false |
-| delivered_from | string | null: false |
-| delivery_days | string | null: false |
+| category_id | string | null: false |
+| condition_id | string | null: false |
+| delivery_charge_type_id | string | null: false |
+| delivery_from_id | string | null: false |
+| delivery_days_id | string | null: false |
 | price | string | null: false |
 | availability | boolean | null: false |
 
@@ -40,6 +40,14 @@
 - belongs_to :user
 - has_one :purchase_order
 - has_one_attached :image
+- belongs_to_active_hash :category, :condition, delivery_charge_type, :delivery_from, :delivery_days
+
+### ActiveHash利用するもの
+- category
+- condition
+- delivery_charge_type
+- delivery_from
+- delivery_days
 
 
 ## purchase_orders テーブル
