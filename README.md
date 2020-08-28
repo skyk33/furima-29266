@@ -61,21 +61,7 @@
 
 - belongs_to :user
 - belongs_to :items
-- has_one :payment_detail
 - has_one :delivery_address
-
-## payment_details テーブル
-
-| Column | Type | Options |
-| ------ | ---- | ------- |
-| card_number | integer | null:false |
-| expiry_month | integer | null: false |
-| card_holders_name | string | null: false |
-| security_code | integer | null: false |
-
-### Association
-
-- belongs_to :purchase_order
 
 ## delivery_address テーブル
 
