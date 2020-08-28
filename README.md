@@ -25,7 +25,7 @@
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | name | string | null: false |
-| user_id | string | null: false |
+| user_id | string | null: false, foreign_key: true |
 | description | text | null: false |
 | category | string | null: false |
 | condition | string | null: false |
