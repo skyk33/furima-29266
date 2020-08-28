@@ -27,11 +27,11 @@
 | name | string | null: false |
 | user_id | string | null: false, foreign_key: true |
 | description | text | null: false |
-| category_id | string | null: false |
-| condition_id | string | null: false |
-| delivery_charge_type_id | string | null: false |
-| delivery_from_id | string | null: false |
-| delivery_days_id | string | null: false |
+| category_id | integer | null: false |
+| condition_id | integer | null: false |
+| delivery_charge_type_id | integer | null: false |
+| delivery_from_id | integer | null: false |
+| delivery_days_id | integer | null: false |
 | price | string | null: false |
 | availability | boolean | null: false |
 
