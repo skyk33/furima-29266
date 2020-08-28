@@ -32,7 +32,7 @@
 | delivery_charge_type_id | integer | null: false |
 | delivery_from_id | integer | null: false |
 | delivery_days_id | integer | null: false |
-| price | string | null: false |
+| price | integer | null: false |
 | availability | boolean | null: false |
 
 ### Association
