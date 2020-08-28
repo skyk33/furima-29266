@@ -56,8 +56,6 @@
 | ------ | ---- | ------- |
 | user_id | references | null: false, foreign_key: true |
 | item_id | references | null: false, foreign_key: true |
-| payment_details_id | references | null: false, foreign_key: true |
-| delivery_address_id | references | null: false, foreign_key: true |
 
 ### Association
 
