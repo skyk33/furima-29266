@@ -59,7 +59,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :items
+- belongs_to :item
 - has_one :delivery_address
 
 ## delivery_address テーブル
