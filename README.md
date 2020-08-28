@@ -67,7 +67,7 @@
 | Column | Type | Options |
 | ------ | ---- | ------- |
 | post_code | string | null: false |
-| prefecture | string | null: false |
+| prefecture_id | integer | null: false |
 | city_town | string | null: false |
 | street_number | string | null: false |
 | building_name | string | |
@@ -76,3 +76,5 @@
 ### Association
 
 - belongs_to :purchase_order
+- belongs_to_active_hash :prefecture
+
