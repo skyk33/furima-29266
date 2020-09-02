@@ -1,5 +1,5 @@
 class Category < ActiveHash::Base
-  delf.data = [
+  self.data = [
     { id: 0, name: '---' },
     { id: 1, name: 'レディース' },
     { id: 2, name: 'メンズ' },
