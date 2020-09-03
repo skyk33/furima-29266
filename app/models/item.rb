@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-    validates :name, :description, :category, :condition, :delivery_charge_type, :delivery_schedule, :prefecture
+    validates :name, :description, :category, :condition, :delivery_charge_type, :delivery_schedule, :prefecture, :image
     validates :price, numericality: {only_integer: true, message: 'should be numbers'}, inclusion: { in: 300..9999999, message: 'is out of price range' }
   end
 
