@@ -28,7 +28,8 @@ class ItemsController < ApplicationController
       :delivery_charge_type_id, 
       :prefecture_id, 
       :delivery_schedule_id,
-      :price
+      :price,
+      :image
     ).merge(user_id: current_user.id)
   end
 

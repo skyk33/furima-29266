@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_charge_type
   belongs_to_active_hash :delivery_schedule
   belongs_to_active_hash :prefecture
+  has_one_attached :image
 
   with_options presence: true do
     validates :name, :description, :category, :condition, :delivery_charge_type, :delivery_schedule, :prefecture
