@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2020_09_02_053331) do
     t.integer "category_id", null: false
     t.integer "condition_id", null: false
     t.integer "delivery_charge_type_id", null: false
-    t.integer "delivery_from_id", null: false
-    t.integer "delivery_days_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "delivery_schedule_id", null: false
     t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
