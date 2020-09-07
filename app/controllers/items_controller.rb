@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :redirect_to_root, except: [:index]
 
   def index
+    @items = Item.all
   end
 
   def new
