@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   has_one_attached :image
   belongs_to :user
+  has_one :purchase_order
 
   with_options presence: true do
     validates :name, :description, :category, :condition, :delivery_charge_type, :delivery_schedule, :prefecture, :image
