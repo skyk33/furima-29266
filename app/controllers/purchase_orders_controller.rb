@@ -1,15 +1,13 @@
 class PurchaseOrdersController < ApplicationController
+  before_action :redirect_sign_in
+  before_action :set_item
+
   def index
-    @item = Item.find(params[:item_id])
-    # @order = PurchaseOrder.new
+    redirect_to root_path unless current_user.id != @item.user.id
     @order = OrderAddress.new
   end
 
   def create
-    # binding.pry
-    @item = Item.find(params[:item_id])
-    binding.pry
-    # @order = PurchaseOrder.new(order_params)
     @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item
@@ -24,6 +22,14 @@ class PurchaseOrdersController < ApplicationController
 
   def order_params
     params.permit(:token, :post_code, :prefecture_id, :city_town, :street_number, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def redirect_sign_in
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def pay_item
