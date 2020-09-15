@@ -43,7 +43,7 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'prefecture_idが0の場合は保存できない' do
-        @order.prefecture_id = nil
+        @order.prefecture_id = 0
         @order.valid?
         expect(@order.errors.full_messages).to include('Prefecture is not selected')
       end
