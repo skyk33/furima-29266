@@ -3,7 +3,7 @@ class PurchaseOrdersController < ApplicationController
   before_action :set_item
 
   def index
-    redirect_to root_path unless current_user.id != @item.user.id
+    redirect_to root_path if (current_user.id == @item.user.id) || PurchaseOrder.exists?(item_id: @item.id)
     @order = OrderAddress.new
   end
 
@@ -21,7 +21,7 @@ class PurchaseOrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:token, :post_code, :prefecture_id, :city_town, :street_number, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.permit(:token, :post_code, :prefecture_id, :city_town, :street_number, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def set_item
