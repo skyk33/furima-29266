@@ -35,8 +35,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
-      redirect_to root_path
+    if !PurchaseOrder.exists?(item_id: @item.id)
+      if @item.destroy
+        redirect_to root_path
+      else
+        render :show
+      end
     else
       render :show
     end
