@@ -30,8 +30,8 @@
 | category_id | integer | null: false |
 | condition_id | integer | null: false |
 | delivery_charge_type_id | integer | null: false |
-| delivery_from_id | integer | null: false |
-| delivery_days_id | integer | null: false |
+| prefecture_id | integer | null: false |
+| delivery_schedule_id | integer | null: false |
 | price | integer | null: false |
 
 ### Association
@@ -39,14 +39,14 @@
 - belongs_to :user
 - has_one :purchase_order
 - has_one_attached :image
-- belongs_to_active_hash :category, :condition, delivery_charge_type, :delivery_from, :delivery_days
+- belongs_to_active_hash :category, :condition, delivery_charge_type, :prefecture, :delivery_schedule
 
 ### ActiveHash利用するもの
 - category
 - condition
 - delivery_charge_type
-- delivery_from
-- delivery_days
+- prefecture
+- delivery_schedule
 
 
 ## purchase_orders テーブル
@@ -71,7 +71,7 @@
 | city_town | string | null: false |
 | street_number | string | null: false |
 | building_name | string | |
-| phone_number | integer | null: false |
+| phone_number | string | null: false |
 | purchase_order | references | null: false, foreign_key: true |
 
 ### Association
