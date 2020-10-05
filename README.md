@@ -41,13 +41,7 @@
 - has_one_attached :image
 - belongs_to_active_hash :category, :condition, delivery_charge_type, :prefecture, :delivery_schedule
 
-### ActiveHash利用するもの
-- category
-- condition
-- delivery_charge_type
-- prefecture
-- delivery_schedule
-
+画像の保存には Active Storageを使用。
 
 ## purchase_orders テーブル
 
@@ -79,3 +73,9 @@
 - belongs_to :purchase_order
 - belongs_to_active_hash :prefecture
 
+## ActiveHash利用するもの
+- category
+- condition
+- delivery_charge_type
+- prefecture
+- delivery_schedule
